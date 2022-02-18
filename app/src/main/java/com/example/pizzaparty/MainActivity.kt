@@ -29,6 +29,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * handler function for clicking on calculate button
+     *
+     * creates a PizzaCalculator object and sets the result at the new text of the
+     * total pizzas textview.
+     *
+     * @param view of the project
+     */
     fun calculateClick(view: View) {
 
         // Get the text that was typed into the EditText
