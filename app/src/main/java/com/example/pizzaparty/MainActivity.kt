@@ -2,7 +2,10 @@ package com.example.pizzaparty
 
 import android.util.Log
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioGroup
 
@@ -11,12 +14,14 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlin.math.ceil
 
 const val TAG = "MainActivity"
+private const val KEY_TOTAL_PIZZAS = "totalPizzas"
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var numAttendEditText: EditText
     private lateinit var numPizzasTextView: TextView
     private lateinit var howHungryRadioGroup: RadioGroup
+    private lateinit var calculateButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +30,24 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate was called")
         numAttendEditText = findViewById(R.id.num_attend_edit_text)
         numPizzasTextView = findViewById(R.id.num_pizzas_text_view)
+        numPizzasTextView.text = getString(R.string.total_pizzas, 0)
         howHungryRadioGroup = findViewById(R.id.hungry_radio_group)
+        calculateButton = findViewById(R.id.calc_button)
 
+        numAttendEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence, p1: Int, p2: Int, p3: Int) {
+                if (p0.isNotEmpty()) {
+                    calculateButton.callOnClick()
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+        })
     }
 
     /**

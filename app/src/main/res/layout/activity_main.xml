@@ -17,7 +17,8 @@
         android:textSize="@dimen/label_text_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/num_attend_edit_text"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <EditText
         android:id="@+id/num_attend_edit_text"
@@ -81,7 +82,8 @@
         android:text="@string/total_pizzas"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/hungry_radio_group"
-        app:layout_constraintTop_toBottomOf="@+id/hungry_radio_group" />
+        app:layout_constraintTop_toBottomOf="@+id/hungry_radio_group"
+        android:freezesText="true" />
 
     <Button
         android:id="@+id/calc_button"
